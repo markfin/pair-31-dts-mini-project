@@ -13,3 +13,7 @@ Contoh: `pair-03-dts-mini-project`
 ## Branching, commit
 
 Branch dapat sesuai dengan kebutuhan dan kesepakatan bersama dalam pair, namun hasil akhirnya harus di merge ke branch `main`.
+
+Tugas:
+1 Muhammad Zamaruddin
+2 vincent laurensius(belum aktif)
