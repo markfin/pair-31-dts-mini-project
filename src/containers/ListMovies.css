@@ -53,3 +53,27 @@ body {
   height: 100%; */
   object-fit: cover;
 }
+/* footer css */
+
+footer {
+  background: #000;
+  text-align: center;
+  padding: 15px 0;
+  font-family: "Open Sans", "Helvetica Neue";
+}
+
+footer .text span {
+  color: #fff;
+  font-size: 17px;
+  margin: 500;
+}
+
+footer .text span a {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+footer .text span:hover {
+  text-decoration: underline;
+}

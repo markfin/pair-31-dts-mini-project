@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { keluarDariAplikasi } from "../authentication/firebase";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -20,7 +21,7 @@ const pages = ['Series', 'Movies', 'New and Popular', 'My List'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+ 
     const navigate = useNavigate();
 
 
@@ -92,7 +93,11 @@ const ResponsiveAppBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center">
+               
+                  {page}
+               
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>

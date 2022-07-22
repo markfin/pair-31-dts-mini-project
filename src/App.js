@@ -1,29 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {Box} from '@mui/material'
 import {  Routes, Route, Link, Outlet} from "react-router-dom";
 import NavBar from "./components/NavBar";
 import HomePage from "./containers/HomePage";
 import ListMovies from './containers/ListMovies'
 import DetailPage from './components/DetailPage'
-import SimpleBottomNavigation from "./components/SimpleBottomNavigation";
+import SimpleFooter from "./components/SimpleFooter";
 import LatestMovies from "./containers/LatestMovies";
 import TopRatedMovies from "./containers/TopRatedMovies";
 import UpcomingMovies from "./containers/UpcomingMovies";
 
 
 function App() {
-  // const navigate = useNavigate()
-  // const [user, loading, error] = useAuthState(auth)
-  // useEffect(
-  //   () =>{
-  //     if(loading){
-  //       return ;
-  //     }
-  //     if(!user){
-  //       navigate("/login")
-  //     }
-  //   }, [user, loading, navigate]
-  // )
+  
 
   return (
     <div className="App">
@@ -44,12 +33,13 @@ function App() {
  <LatestMovies/>
  <TopRatedMovies/>
  <UpcomingMovies/>
+ <SimpleFooter/>
  </>
  }>
  <Route path=":id" element={<DetailPage/>}/>
   </Route>
 </Routes>
-<SimpleBottomNavigation/>
+
     </div>
   );
 
@@ -62,8 +52,19 @@ function Home (){
     <p>Belajar Routing</p>
      </main>
      <nav>
+     <Box
+      sx={{
+        width: 300,
+        height: 300,
+        backgroundColor: 'dark',
+        '&:hover': {
+          backgroundColor: 'main',
+          opacity: [0.9, 0.8, 0.7],
+        },
+      }}>
       <Link to="/about"> About</Link>
       <Link to="/movies"> Film</Link>
+      </Box>
      </nav>
      </>
   )
