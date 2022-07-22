@@ -1,5 +1,5 @@
 import { Card, CardMedia, Box,CardContent, Typography  } from "@mui/material";
-
+import {Link} from "react-router-dom"
 import React from "react";
 const urlDepanPosterPath = "https://image.tmdb.org/t/p/w200"
 const KardMovies = ({propsMovie})=>{
