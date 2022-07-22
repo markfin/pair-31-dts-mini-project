@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -10,7 +10,7 @@ import { Pagination, Navigation } from "swiper";
 
 import { Box, Typography } from '@mui/material'
 import "./ListMovies.css"
-import { Outlet } from "react-router-dom";
+
 import axios from 'axios'
 import KardMovies from '../komponen/KardMovies'
 const ListMovies = () => {

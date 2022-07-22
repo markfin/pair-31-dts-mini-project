@@ -13,7 +13,7 @@ const HomePage = () => {
   return (
 
     <>
-      <Box className={styles.container}>
+      <Box>
         <Typography variant="body1">Halo, ini adalah halaman utama {user.email}</Typography>
       </Box>
   
