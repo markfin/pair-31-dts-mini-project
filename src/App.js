@@ -1,45 +1,86 @@
-import React from "react";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Experience from "./components/Experience";
-import Search from "./components/Search";
-import Download from "./components/Download";
-import Footer from "./components/Footer";
-import Index from "./components/layout/Index";
-import Lyrics from "./components/tracks/Lyrics";
+import React, { useEffect } from "react";
+import {Box} from '@mui/material'
 import {  Routes, Route, Link, Outlet} from "react-router-dom";
-// import { ContextController } from "./context";
+import NavBar from "./components/NavBar";
+import HomePage from "./containers/HomePage";
+import ListMovies from './containers/ListMovies'
+import DetailPage from './components/DetailPage'
+import SimpleBottomNavigation from "./components/SimpleBottomNavigation";
+import LatestMovies from "./containers/LatestMovies";
+import TopRatedMovies from "./containers/TopRatedMovies";
+import UpcomingMovies from "./containers/UpcomingMovies";
+
 
 function App() {
-  return (
-    <div className="App " style={{opacity:"1", color:"rgb(255,255,255)", overflow: "hidden"}}>
-<Header/>
- {/* <ContextController>  */}
-<Routes>
-<Route path="/" element={
-<>
-<Hero/>
-<Experience/>
-<Search/>
-<Download/>
- </>}/>
- <Route path="music" element={<Index/>}> 
- <Route path=":id" element={
-  <>
-  <Outlet/>
- <Lyrics/>
-  </>
- } />
- </Route>
-</Routes> 
- {/* </ContextController> */}
-<Footer/>
+  // const navigate = useNavigate()
+  // const [user, loading, error] = useAuthState(auth)
+  // useEffect(
+  //   () =>{
+  //     if(loading){
+  //       return ;
+  //     }
+  //     if(!user){
+  //       navigate("/login")
+  //     }
+  //   }, [user, loading, navigate]
+  // )
 
+  return (
+    <div className="App">
+      <NavBar />
+     
+      <HomePage />
+      <Routes>
+<Route path="/" element={<> <Home/></>}>
+ </Route>
+ <Route path="about" element={ <About/>}> </Route>
+<Route path="dunia" element={<> example dunia</>}> </Route>
+ <Route path="movies" element={ 
+ <>
+ <Box>
+  <Outlet/>
+ </Box>
+ <ListMovies/> 
+ <LatestMovies/>
+ <TopRatedMovies/>
+ <UpcomingMovies/>
+ </>
+ }>
+ <Route path=":id" element={<DetailPage/>}/>
+  </Route>
+</Routes>
+<SimpleBottomNavigation/>
     </div>
   );
 
 }
-
+function Home (){
+  return (
+    <>
+    <main>
+    <h2>ini halaman Home Page</h2>
+    <p>Belajar Routing</p>
+     </main>
+     <nav>
+      <Link to="/about"> About</Link>
+      <Link to="/movies"> Film</Link>
+     </nav>
+     </>
+  )
+}
+function About (){
+  return (
+    <>
+  <main>
+  <h2>ini halaman About</h2>
+  <p>Belajar Routing</p>
+   </main>
+   <nav>
+    <Link to="/"> Home</Link>
+   </nav>
+   </>
+  )
+}
 
 export default App;
 
