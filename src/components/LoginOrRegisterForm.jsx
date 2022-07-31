@@ -132,9 +132,11 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
           <Link to="/login">
             <Typography variant="body1" sx={{ color: "white"}}>or do you want Login ?</Typography>
           </Link>
+        )}
+        <Box sx={{  color:"white" }}>
           <small> email: buat@email.com</small>
           <small>password:123456789</small>
-        )}
+        </Box>
       </Box>
     </Grid>
   );
