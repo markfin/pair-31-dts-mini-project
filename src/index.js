@@ -3,38 +3,41 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ContextController } from "./context";
 import LoginPage from "./containers/LoginPage";
 import RegisterPage from "./containers/RegisterPage";
 import ProtectedKomponent from "./components/ProtectedKomponent";
-import ListMoviesLogin from "./containers/ListMoviesLogin";
+
+// Application name 	web applivation
+// API key 	95ede86cf509d9398196bfaedcabe817
+// Shared secret 	d43f307a0ee4ae08318e36baf7091700
+// Registered to 	m4rkf1n
+
+// The API root URL is located at http://ws.audioscrobbler.com/2.0/ 
+
+// Request authorization from the user
+// http://www.last.fm/api/auth/?api_key=xxx
+
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render( <React.StrictMode>
-    <BrowserRouter>
-    <Routes>
-    <Route path = "login"
-    element = { 
-        <div>
-        <ListMoviesLogin/>
-        <LoginPage/>
-        </div>
-
-    }
-    /> 
-    <Route path = "register"
-    element = { < RegisterPage / > }
-    /> <Route path = "*"
-    element = { <
-        ProtectedKomponent >
-        <App/>
+   <ContextController>
+   <BrowserRouter>
+      <Routes>
+        <Route path="*" element={
+        <ProtectedKomponent>
+        <App />
         </ProtectedKomponent>
-    }
-    />
-    </Routes> 
-    </BrowserRouter> 
+        } />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
+      </Routes>
+    </BrowserRouter>
+   </ContextController>
+   
     </React.StrictMode>
 );
 

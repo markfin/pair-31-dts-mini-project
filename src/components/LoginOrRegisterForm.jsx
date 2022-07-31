@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 const LoginOrRegisterForm = ({ loginOrRegister }) => {
   // gunakan hooks useNavigate
   const navigate = useNavigate();
-  const [user, loading]=useAuthState(auth)
+  const [user, loading, error]=useAuthState(auth)
 
   const [credential, setCredential] = useState({
     email: "",
@@ -80,7 +80,8 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
       direction="column"
       alignItems="center"
       justifyContent="center"
-      style={{ minHeight: "95vh" }}
+      style={{ minHeight: "95vh", backgroundColor:"rgb(8 23 48)" }}
+      
     >
       <Box className={styles.boxy} component="form" noValidate>
         <Typography variant="body1">
@@ -94,6 +95,9 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
           size="small"
           value={credential.email}
           onChange={textFieldEmailOnChangeHandler}
+          style={{ 
+            backgroundColor:"#fff"
+           }}
         />
 
         <TextField
@@ -103,24 +107,33 @@ const LoginOrRegisterForm = ({ loginOrRegister }) => {
           size="small"
           value={credential.password}
           onChange={textFieldPasswordOnChangeHandler}
+          style={{ 
+            backgroundColor:"#fff"
+           }}
         />
 
         <Button
           variant="outlined"
           size="small"
           onClick={buttonLoginOrRegisterOnClickHandler}
+          style={{ 
+            backgroundColor:"magenta",
+            color:"maroon"
+           }}
         >
           {loginOrRegister === "login" ? "Login" : "Register Account"}
         </Button>
 
         {loginOrRegister === "login" ? (
           <Link to="/register">
-            <Typography variant="body1">or do you want Register ?</Typography>
+            <Typography variant="body1" sx={{ color: "white" }}>or do you want Register ?</Typography>
           </Link>
         ) : (
           <Link to="/login">
-            <Typography variant="body1">or do you want Login ?</Typography>
+            <Typography variant="body1" sx={{ color: "white"}}>or do you want Login ?</Typography>
           </Link>
+          <small> email: buat@email.com</small>
+          <small>password:123456789</small>
         )}
       </Box>
     </Grid>
